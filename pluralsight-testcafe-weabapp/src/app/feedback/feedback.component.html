@@ -1,0 +1,61 @@
+<div class="container feedback-container e2e-feedback-page">
+  <div class="row feedback-header">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <div *ngIf="submitted && !submitOk" class="alert alert-danger" role="alert">
+        <i class="fa fa-warning"></i>
+        <span> The form contains validation errors :(</span>
+      </div>
+      <div *ngIf="submitted && submitOk" class="alert alert-success" role="alert">
+        <i class="fa fa-check-circle"></i>&nbsp;
+        <span>Thank you! Your feedback is on it's way to us :)</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!submitted || !submitOk" class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <form name="form" class="feedback-form" [formGroup]="feedbackModel" (ngSubmit)="sendFeedback()">
+        <!-- Email -->
+        <div class="form-group" [ngClass]="{'text-danger': feedbackModel.controls.email.invalid && submitted}">
+          <label for="email">Email</label>
+          <input type="email"
+                 id="email"
+                 class="form-control"
+                 name="email"
+                 formControlName="email"/>
+        </div>
+
+        <!-- Rating -->
+        <div class="form-group" [ngClass]="{'text-danger': feedbackModel.controls.rating.invalid && submitted}">
+          <label for="rating">How would you rate this app</label>
+          <select id="rating" name="rating" formControlName="rating" class="form-control">
+            <option value="1">Poor</option>
+            <option value="2">Average</option>
+            <option value="3">So and so</option>
+            <option value="4">Good</option>
+            <option value="5">Awesome</option>
+          </select>
+        </div>
+
+        <!-- Feedback -->
+        <div class="form-group">
+          <label for="feedback">Feedback</label>
+          <textarea
+            id="feedback"
+            class="form-control"
+            name="feedback"
+            rows="3"
+            formControlName="feedback">
+			    </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-dark pull-right e2e-send-feedback-btn">
+          <i class="fa fa-envelope-o"></i>
+          <span> Send Feedback</span>
+        </button>
+      </form>
+    </div>
+    <div class="offset-3"></div>
+  </div>
+</div>

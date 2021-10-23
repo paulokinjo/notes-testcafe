@@ -1,0 +1,22 @@
+<div class="card note">
+  <div class="card-body note-body">
+    <div>
+      <!-- title -->
+      <input type="text"
+             [(ngModel)]="note.title"
+             (change)="updateNote()"
+             class="input-label-lg note-title-input"
+             maxlength="18"/>
+      <a (click)="deleteNote()" class="text-danger note-delete-btn">
+        <i class="fa fa-remove"></i>
+      </a>
+    </div>
+    <!-- text -->
+    <textarea class="input-label note-text-input"
+              rows="4"
+              maxlength="100"
+              [(ngModel)]="note.text"
+              (change)="updateNote()">
+    </textarea>
+  </div>
+</div>

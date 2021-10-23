@@ -1,0 +1,58 @@
+<div class="container login-container e2e-login-page">
+  <div class="row login-header">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <h2>Log in to continue</h2>
+      <div class="alert alert-info alert-dismissible">
+        <i class="fa fa-info">&nbsp;</i>
+        <span>This is an example application created to demonstrate e2e testing.
+          It does not use a real database. All data will be removed on page refresh.
+          To log in use one of the following credentials: john.doe / password123 or
+          jane.doe with password456.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <form name="form" class="login-form" [formGroup]="loginForm">
+        <!-- Name -->
+        <div class="form-group">
+          <input type="text"
+                 id="username"
+                 class="form-control"
+                 formControlName="username"
+                 name="name"
+                 placeholder="Type username"/>
+        </div>
+        <!-- Password -->
+        <div class="form-group">
+          <input type="password"
+                 id="password"
+                 class="form-control"
+                 formControlName="password"
+                 name="password"
+                 placeholder="Type password"/>
+        </div>
+
+        <div *ngIf="authFailed" class="form-group auth-failed-error">
+          <div class="alert alert-danger" role="alert">
+            Your username/password are incorrect
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="offset-3"></div>
+  </div>
+  <div class="row">
+    <div class="offset-3">
+    </div>
+    <div class="col-md-6">
+      <button type="submit" (click)="signIn()" class="btn btn-dark pull-right">
+        <i class="fa fa-sign-in"></i>
+        <span> Log in</span>
+      </button>
+    </div>
+  </div>
+</div>

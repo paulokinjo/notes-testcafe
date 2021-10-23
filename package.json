@@ -1,0 +1,18 @@
+{
+  "name": "testcafe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe",
+    "test:headless": "testcafe chrome:headless",
+    "test:screenshots": "testcafe -s takeOnFails=true"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "testcafe": "^1.16.1",
+    "typescript": "^4.4.4"
+  }
+}
